@@ -14,7 +14,7 @@ public class Lists {
         return list;
     }
     
-    public static <E> List<E> list(E... elements) {
+    public static <E> List<E> list(@SuppressWarnings("unchecked") E... elements) {
         return listFrom(Arrays.asList(elements));
     }
     
@@ -22,13 +22,13 @@ public class Lists {
         return new ArrayList<E>(elements);
     }
     
-    public static <E> List<E> listWith(Collection<E> elements, E... elementsToAdd) {
+    public static <E> List<E> listWith(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
         List<E> listFrom = listFrom(elements);
         listFrom.addAll(list(elementsToAdd));
         return listFrom;
     }
     
-    public static <E> List<E> listWithout(Collection<E> elements, E... elementsToAdd) {
+    public static <E> List<E> listWithout(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
         List<E> listFrom = listFrom(elements);
         listFrom.removeAll(list(elementsToAdd));
         return listFrom;

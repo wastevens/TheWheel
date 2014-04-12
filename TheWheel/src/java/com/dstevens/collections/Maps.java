@@ -11,7 +11,7 @@ public class Maps {
         return new HashMap<Key, Value>();
     }
     
-    public static <Key, Value> Map<Key, Value> map(Pair<Key, Value>... keyValuePair) {
+    public static <Key, Value> Map<Key, Value> map(@SuppressWarnings("unchecked") Pair<Key, Value>... keyValuePair) {
         HashMap<Key, Value> map = new HashMap<Key, Value>();
         for (Pair<Key,Value> pair : keyValuePair) {
             map.put(pair.key, pair.value);

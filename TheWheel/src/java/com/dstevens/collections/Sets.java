@@ -14,7 +14,7 @@ public class Sets {
         return set;
     }
     
-    public static <E> Set<E> set(E... elements) {
+    public static <E> Set<E> set(@SuppressWarnings("unchecked") E... elements) {
         return setFrom(Arrays.asList(elements));
     }
     
@@ -22,13 +22,13 @@ public class Sets {
         return new HashSet<E>(elements);
     }
     
-    public static <E> Set<E> setWith(Collection<E> elements, E... elementsToAdd) {
+    public static <E> Set<E> setWith(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
         Set<E> setFrom = setFrom(elements);
         setFrom.addAll(set(elementsToAdd));
         return setFrom;
     }
     
-    public static <E> Set<E> setWithout(Collection<E> elements, E... elementsToAdd) {
+    public static <E> Set<E> setWithout(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
         Set<E> setFrom = setFrom(elements);
         setFrom.removeAll(set(elementsToAdd));
         return setFrom;
