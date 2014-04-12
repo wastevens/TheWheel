@@ -1,4 +1,4 @@
-package com.dsteven.serialization.xstream;
+package com.dstevens.serialization.xstream;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
