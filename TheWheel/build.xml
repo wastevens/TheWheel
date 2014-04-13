@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="TheWheel" default="jar" xmlns:ivy="antlib:org.apache.ivy.ant"  basedir=".">
+<project name="${project.name}" default="jar" xmlns:ivy="antlib:org.apache.ivy.ant"  basedir=".">
 
 <property file="build.properties"/>
 
@@ -25,7 +25,7 @@
 </target>
 	
 <target name="resolve" description="--> retrieve dependencies with ivy" depends="clean, flush">
-	<ivy:retrieve conf="binaries,test,sources,javadoc" pattern="lib/[conf]/[artifact](-[classifier]).[ext]"/>
+	<ivy:retrieve pattern="${ivy.lib.dir}/[conf]/[artifact](-[classifier]).[ext]" />
 </target>
 	
 <target name="init" depends="resolve">
@@ -48,18 +48,18 @@
 </target>
 
 <target name="sources-jar">
-<echo>Jar the compiled files</echo>
+<echo>Jar the source files</echo>
 <jar basedir="${src.dir}" destfile="${dist.dir}/${project.name}-sources.jar" />
 </target>
 	
 <target name="publish" depends="jar, sources-jar" description="Publish this build into repository">
-	<ivy:retrieve/>
+	<property name="revision" value="${version.major}.${version.minor}.${version.revision}" />
     <ivy:publish 
-      pubrevision="${version.major}.${version.minor}.${version.revision}" 
+      artifactspattern="${dist.dir}/[artifact].[ext]"
       overwrite="true"
-      resolver="local">
-      <artifacts pattern="${dist.dir}/[artifact].[ext]"/>
-    </ivy:publish>
+      resolver="local"
+      pubrevision="${revision}"
+      status="release" />
 </target>
 
 </project>

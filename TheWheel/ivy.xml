@@ -1,17 +1,17 @@
 <ivy-module version="2.0">
-    <info organisation="com.dstevens" module="utilities" revision="${version.major}.${version.minor}.${version.revision}"/>
+    <info organisation="com.dstevens" module="${project.name}" revision="${version.major}.${version.minor}.${version.revision}"/>
     <configurations>
-      <conf name="binaries" description="binary jars"/>
+      <conf name="default" description="binary jars"/>
       <conf name="sources" visibility="public"/>
       <conf name="javadoc" visibility="public"/>
       <conf name="test" visibility="private"/>
     </configurations>
     <publications>
-      <artifact name="TheWheel"/>
-      <artifact name="TheWheel-sources" type="source" ext="jar"/>
+      <artifact name="${project.name}" conf="default"/>
+      <artifact name="${project.name}-sources" type="source" ext="jar" conf="sources"/>
     </publications>
     <dependencies>
-        <dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4" conf="sources->sources;javadoc->javadoc;binaries->default"/>
-        <dependency org="org.apache.commons" name="commons-lang3" rev="3.2"  conf="sources->sources;javadoc->javadoc;binaries->default" />
+        <dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4" conf="default;sources;javadoc"/>
+        <dependency org="org.apache.commons" name="commons-lang3" rev="3.2" conf="default;sources;javadoc"/>
     </dependencies>
 </ivy-module>
