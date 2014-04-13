@@ -8,6 +8,7 @@
     </configurations>
     <publications>
       <artifact name="TheWheel"/>
+      <artifact name="TheWheel-sources" type="source" ext="jar"/>
     </publications>
     <dependencies>
         <dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4" conf="sources->sources;javadoc->javadoc;binaries->default"/>
