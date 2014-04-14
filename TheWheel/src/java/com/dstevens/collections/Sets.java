@@ -18,8 +18,12 @@ public class Sets {
         return setFrom(Arrays.asList(elements));
     }
     
-    public static <E> Set<E> setFrom(Collection<E> elements) {
-        return new HashSet<E>(elements);
+    public static <E> Set<E> setFrom(Iterable<E> elements) {
+        Set<E> set = set();
+        for (E e : elements) {
+            set.add(e);
+        }
+        return set;
     }
     
     public static <E> Set<E> setWith(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {

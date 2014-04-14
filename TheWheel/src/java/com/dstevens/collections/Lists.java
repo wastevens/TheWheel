@@ -18,8 +18,12 @@ public class Lists {
         return listFrom(Arrays.asList(elements));
     }
     
-    public static <E> List<E> listFrom(Collection<E> elements) {
-        return new ArrayList<E>(elements);
+    public static <E> List<E> listFrom(Iterable<E> elements) {
+        List<E> list = list();
+        for (E e : elements) {
+            list.add(e);
+        }
+        return list;
     }
     
     public static <E> List<E> listWith(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
