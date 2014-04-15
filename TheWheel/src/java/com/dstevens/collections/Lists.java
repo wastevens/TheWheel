@@ -26,21 +26,21 @@ public class Lists {
         return list;
     }
     
-    public static <E> List<E> listWith(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
+    public static <E> List<E> listWith(Collection<E> elements, E elementToAdd) {
         List<E> listFrom = listFrom(elements);
-        listFrom.addAll(list(elementsToAdd));
+        listFrom.add(elementToAdd);
         return listFrom;
     }
     
-    public static <E> List<E> listWithout(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
+    public static <E> List<E> listWithout(Collection<E> elements, E elementToAdd) {
         List<E> listFrom = listFrom(elements);
-        listFrom.removeAll(list(elementsToAdd));
+        listFrom.remove(elementToAdd);
         return listFrom;
     }
     
     public static <E extends Comparable<E>> List<E> sort(Collection<E> elements) {
         List<E> sortedList = listFrom(elements);
-        Collections.sort(sortedList);
+        sortedList.sort(Comparator.naturalOrder());
         return sortedList;
     }
 }

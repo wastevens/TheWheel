@@ -33,47 +33,6 @@ public class Operations {
         return toReturn;
     }
     
-    public static <E> Collection<E> filter(Collection<E> elements, Predicate<? super E> operation) {
-        List<E> list = list();
-        for (E e : elements) {
-            if (operation.apply(e)) {
-                list.add(e);
-            }
-        }
-        return list;
-    }
-    
-    public static <E> Optional<E> findFirst(Collection<E> elements, Predicate<? super E> function) {
-        for (E e : elements) {
-            if (function.apply(e)) {
-                return Optional.withValue(e);
-            }
-        }
-        return Optional.withoutValue();
-    }
-    
-    public static <E> Collection<E> remove(Collection<E> elements, Predicate<? super E> function) {
-        List<E> list = list();
-        for (E e : elements) {
-            if (!function.apply(e)) {
-                list.add(e);
-            }
-        }
-        return list;
-    }
-    
-    public static <E> boolean allAre(Collection<? extends E> elements, Predicate<? super E> predicate) {
-        return filter(elements, predicate).size() == elements.size();
-    }
-    
-    public static <E> boolean areAny(Collection<? extends E> elements, Predicate<? super E> predicate) {
-        return !filter(elements, predicate).isEmpty();
-    }
-    
-    public static <E> int count(Collection<? extends E> elements, Predicate<? super E> predicate) {
-        return filter(elements, predicate).size();
-    }
-    
     public static <E> Collection<E> flatten(Collection<Collection<E>> elements) {
         List<E> toReturn = list();
         for (Collection<E> listOfElements : elements) {
