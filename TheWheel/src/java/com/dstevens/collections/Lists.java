@@ -38,9 +38,15 @@ public class Lists {
         return listFrom;
     }
     
-    public static <E extends Comparable<E>> List<E> sort(Collection<E> elements) {
-        List<E> sortedList = listFrom(elements);
+    public static <E extends Comparable<E>> List<E> sort(List<E> list) {
+        List<E> sortedList = listFrom(list);
         sortedList.sort(Comparator.naturalOrder());
         return sortedList;
+    }
+    
+    public static <E> List<E> shuffle(List<E> list) {
+        List<E> shuffledList = listFrom(list);
+        Collections.shuffle(shuffledList);
+        return shuffledList;
     }
 }
