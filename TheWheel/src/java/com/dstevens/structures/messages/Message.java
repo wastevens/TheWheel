@@ -2,7 +2,7 @@ package com.dstevens.structures.messages;
 
 import com.dstevens.utilities.ObjectExtensions;
 
-public class Message {
+public final class Message {
 
     private final String key;
     private final Object[] objects;
