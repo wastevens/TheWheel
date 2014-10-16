@@ -11,8 +11,6 @@
       <artifact name="${project.name}-sources" type="source" ext="jar" conf="sources"/>
     </publications>
     <dependencies>
-        <dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4" conf="default;sources;javadoc"/>
         <dependency org="org.apache.commons" name="commons-lang3" rev="3.2" conf="default;sources;javadoc"/>
-        <dependency org="org.springframework" name="spring-context" rev="4.0.3.RELEASE" conf="default;sources;javadoc"/>
     </dependencies>
 </ivy-module>

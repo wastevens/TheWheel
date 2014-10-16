@@ -32,9 +32,9 @@ public class Sets {
         return setFrom;
     }
     
-    public static <E> Set<E> setWithout(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToAdd) {
+    public static <E> Set<E> setWithout(Collection<E> elements, @SuppressWarnings("unchecked") E... elementsToRemove) {
         Set<E> setFrom = setFrom(elements);
-        setFrom.removeAll(set(elementsToAdd));
+        setFrom.removeAll(set(elementsToRemove));
         return setFrom;
     }
 }

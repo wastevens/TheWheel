@@ -30,7 +30,6 @@ public final class Message {
         return ObjectExtensions.hashCodeFor(this);
     }
     
-    
     @Override
     public String toString() {
         return ObjectExtensions.toStringFor(this);
