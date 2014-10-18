@@ -44,6 +44,14 @@ public class Lists {
         return sortedList;
     }
     
+    public static <E> E first(List<E> list) {
+        return list.get(0);
+    }
+    
+    public static <E> E last(List<E> list) {
+        return list.get(list.size() - 1);
+    }
+    
     public static <E> List<E> shuffle(List<E> list) {
         List<E> shuffledList = listFrom(list);
         Collections.shuffle(shuffledList);
