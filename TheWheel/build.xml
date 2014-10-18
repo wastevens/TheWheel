@@ -24,6 +24,11 @@
 <delete dir="${lib.dir}"/>
 </target>
 	
+<target name="flush-cache">
+<echo>Flushing the ivy cache</echo>
+<ivy:cleancache />
+</target>
+	
 <target name="resolve" description="--> retrieve dependencies with ivy" depends="clean, flush">
 	<ivy:retrieve pattern="${ivy.lib.dir}/[conf]/[artifact](-[classifier]).[ext]" />
 </target>
