@@ -7,6 +7,7 @@
 <mkdir dir="${build.dir}"/>
 <mkdir dir="${classes.dir}"/>
 <mkdir dir="${dist.dir}"/>
+<mkdir dir="${src.dir}/resources"/>
 	
 <path id="classpath">
   <pathelement path="${classpath}"/>
@@ -51,6 +52,9 @@
 
 <target name="compile" depends="init">
   <echo>Compile the source files</echo>
+	<property name="myclasspath" refid="classpath"/>
+		<!-- Emit the property to the ant console -->
+		<echo message="Classpath = ${myclasspath}"/>
   <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includeantruntime="false">
   <classpath refid="classpath"/>
   </javac>
