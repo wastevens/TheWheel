@@ -1,6 +1,10 @@
 package com.dstevens.collections;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.function.Predicate;
 
 public class Sets {
 
@@ -36,5 +40,11 @@ public class Sets {
         Set<E> setFrom = setFrom(elements);
         setFrom.removeAll(set(elementsToRemove));
         return setFrom;
+    }
+    
+    public static <E> Set<E> setWithout(Collection<E> elements, Predicate<? super E> matches) {
+    	Set<E> setFrom = setFrom(elements);
+    	setFrom.removeIf(matches);
+    	return setFrom;
     }
 }
