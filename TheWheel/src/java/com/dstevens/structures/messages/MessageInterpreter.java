@@ -1,7 +1,9 @@
 package com.dstevens.structures.messages;
 
-public interface MessageInterpreter {
+import java.util.function.Function;
 
-    String interpret(Message message);
+public interface MessageInterpreter extends Function<Message, String> {
+
+    String apply(Message message);
     
 }
