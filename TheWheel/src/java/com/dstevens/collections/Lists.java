@@ -1,17 +1,16 @@
 package com.dstevens.collections;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Lists {
 
     public static <E> List<E> list() {
         return new ArrayList<E>();
-    }
-    
-    public static <E> List<E> list(E element) {
-        List<E> list = list();
-        list.add(element);
-        return list;
     }
     
     public static <E> List<E> list(@SuppressWarnings("unchecked") E... elements) {
@@ -20,9 +19,7 @@ public class Lists {
     
     public static <E> List<E> listFrom(Iterable<E> elements) {
         List<E> list = list();
-        for (E e : elements) {
-            list.add(e);
-        }
+        elements.forEach((E e) -> list.add(e));
         return list;
     }
     
