@@ -43,8 +43,8 @@ public class Sets {
     }
     
     public static <E> Set<E> setWithout(Collection<E> elements, Predicate<? super E> matches) {
-    	Set<E> setFrom = setFrom(elements);
-    	setFrom.removeIf(matches);
-    	return setFrom;
+        Set<E> setFrom = setFrom(elements);
+        setFrom.removeIf(matches);
+        return setFrom;
     }
 }
