@@ -36,9 +36,13 @@ public class Lists {
     }
     
     public static <E extends Comparable<E>> List<E> sort(List<E> list) {
-        List<E> sortedList = listFrom(list);
-        sortedList.sort(Comparator.naturalOrder());
-        return sortedList;
+    	return sort(list, Comparator.naturalOrder());
+    }
+    
+    public static <E> List<E> sort(List<E> list, Comparator<? super E> comparator) {
+    	List<E> sortedList = listFrom(list);
+    	sortedList.sort(comparator);
+    	return sortedList;
     }
     
     public static <E> E first(List<E> list) {
