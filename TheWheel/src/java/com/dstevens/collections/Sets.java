@@ -2,6 +2,7 @@ package com.dstevens.collections;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -10,6 +11,19 @@ public class Sets {
 
     public static <E> Set<E> set() {
         return new HashSet<E>();
+    }
+    
+    public static <E extends Enum<E>> EnumSet<E> enumSet(Class<E> enumKlazz) {
+    	return EnumSet.noneOf(enumKlazz);
+    }
+    
+    public static <E extends Enum<E>> EnumSet<E> enumSetAllOf(Class<E> enumKlazz) {
+    	return EnumSet.allOf(enumKlazz);
+    }
+    
+    @SafeVarargs
+    public static <E extends Enum<E>> EnumSet<E> enumSet(E enum1, E... enumRest) {
+    	return EnumSet.of(enum1, enumRest);
     }
     
     @SafeVarargs
